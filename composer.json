@@ -1,0 +1,32 @@
+{
+    "name": "zhouzishu/laravel-z5encrypt",
+    "description": "A Laravel package for z5encrypt.com",
+    "type": "library",
+    "authors": [
+        {
+            "name": "zhouzishu",
+            "email": "2693558149@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "firebase/php-jwt": "^5.0",
+        "illuminate/support": "5.*",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zhouzishu\\LaravelZ5Encrypt\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Zhouzishu\\LaravelZ5Encrypt\\ServiceProvider"
+            ],
+            "aliases": {
+                "Z5Encrypt": "Zhouzishu\\LaravelZ5Encrypt\\Facades\\Z5Encrypt"
+            }
+        }
+    }
+}
