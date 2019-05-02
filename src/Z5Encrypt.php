@@ -15,17 +15,18 @@ class Z5Encrypt
         $this->config = $config;
     }
 
-    public function encryptFile($file, $fileName, $configuration = []) {
-        $url = 'https://open.api.z5encrypt.com/release/public/v'. 
+    public function encryptFile($file, $fileName, $configuration = [])
+    {
+        $url = 'https://open.api.z5encrypt.com/release/public/v'.
             $this->config['api_version'].
-            "/encrypt";
+            '/encrypt';
         $token = $this->getToken($file, $fileName, $configuration);
 
         $http_client = new Client();
 
         $response = $http_client->post($url, [
             'headers' => [
-                'token' => $this->config['token']
+                'token' => $this->config['token'],
             ],
 
             'body' => $token,
@@ -43,9 +44,9 @@ class Z5Encrypt
     public function getToken($file, $fileName, $configuration = [])
     {
         $payload = [
-            "file" => base64_encode($file),
-            "fileName" => $fileName,
-            "configuration" => $configuration,
+            'file'          => base64_encode($file),
+            'fileName'      => $fileName,
+            'configuration' => $configuration,
         ];
 
         return (string) JWT::encode($payload, $this->config['secret']);

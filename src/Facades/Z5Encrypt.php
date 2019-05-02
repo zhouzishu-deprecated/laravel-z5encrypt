@@ -1,4 +1,5 @@
 <?php
+
 namespace Zhouzishu\LaravelZ5Encrypt\Facades;
 
 use Illuminate\Support\Facades\Facade;
